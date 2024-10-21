@@ -1,0 +1,8 @@
+name: ArchiveLocale
+version: '1.0-SNAPSHOT'
+main: com.github.thelampgod.archiveLocale.ArchiveLocale
+api-version: '1.21'
+authors: [ thelampgod ]
+description: Adds localization to The Archive minecraft server
+website: https://github.com/thelampgod/ArchiveLocale
+depend: [ ProtocolLib ]
