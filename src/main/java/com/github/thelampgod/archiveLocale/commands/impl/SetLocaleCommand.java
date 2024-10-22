@@ -32,7 +32,7 @@ public class SetLocaleCommand implements CommandExecutor {
         ArchiveLocale.INSTANCE.getLocaleManager().put(player, locale);
         player.sendMessage("Locale set to " + locale.getDisplayName());
 
-        //TODO: re-send inventory
+        player.updateInventory();
         return true;
     }
 }
