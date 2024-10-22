@@ -79,7 +79,6 @@ public class InventoryTranslator {
 
         String translatedText = translateKeysInString(titleKey, locale);
 
-        ArchiveLocale.INSTANCE.getLogger().info(translatedText);
         title.setJson(translatedText);
     }
 
