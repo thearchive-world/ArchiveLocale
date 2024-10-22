@@ -21,22 +21,31 @@ public class TranslationManager {
         this.plugin = plugin;
     }
 
-    public void loadTranslations(Locale locale) {
-        if (translations.containsKey(locale)) return; // locale already loaded
+    /**
+     * Load localization file into memory
+     * @param locale the locale
+     * @return true on success
+     */
+    public boolean loadTranslations(Locale locale) {
+        if (translations.containsKey(locale)) return true; // locale already loaded
 
         String localeFile = "assets/archivelocale/lang/" + locale.toString() + ".json";
         InputStream inputStream = plugin.getResource(localeFile);
 
-        if (inputStream != null) {
-            try (InputStreamReader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8)) {
-                Map<String, String> localeTranslations = new Gson().fromJson(reader, new TypeToken<Map<String, String>>() {}.getType());
-                translations.put(locale, localeTranslations);
-            } catch (Exception e) {
-                plugin.getLogger().severe("Failed to load translations for " + locale + ": " + e.getMessage());
-            }
-        } else {
+        if (inputStream == null) {
             plugin.getLogger().severe("Translation file for " + locale + " not found.");
+            return false;
         }
+
+        try (InputStreamReader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8)) {
+            Map<String, String> localeTranslations = new Gson().fromJson(reader, new TypeToken<Map<String, String>>() {}.getType());
+            translations.put(locale, localeTranslations);
+        } catch (Exception e) {
+            plugin.getLogger().severe("Failed to load translations for " + locale + ": " + e.getMessage());
+            return false;
+        }
+
+        return true;
     }
 
     public String translate(String key, Locale locale) {

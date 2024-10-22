@@ -1,6 +1,9 @@
 package com.github.thelampgod.archiveLocale.commands.impl;
 
 import com.github.thelampgod.archiveLocale.ArchiveLocale;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.event.ClickEvent;
+import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -28,7 +31,17 @@ public class SetLocaleCommand implements CommandExecutor {
             return false;
         }
 
-        ArchiveLocale.INSTANCE.getTranslationManager().loadTranslations(locale);
+        if (!ArchiveLocale.INSTANCE.getTranslationManager().loadTranslations(locale)) {
+            Component message = Component.text("Locale for " + locale + " not found. Feel free to contribute at ")
+                    .append(Component.text("GitHub!")
+                            .color(TextColor.fromHexString("#00A1E4"))
+                            .clickEvent(ClickEvent.openUrl("https://github.com/thelampgod/ArchiveLocale"))
+                            .hoverEvent(Component.text("Click to open")));
+
+            player.sendMessage(message);
+            return true;
+        }
+
         ArchiveLocale.INSTANCE.getLocaleManager().put(player, locale);
         player.sendMessage("Locale set to " + locale.getDisplayName());
 
