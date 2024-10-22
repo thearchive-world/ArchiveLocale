@@ -14,6 +14,7 @@ public final class ArchiveLocale extends JavaPlugin {
     private ProtocolManager protocolManager;
 
     private LocaleManager localeManager;
+    private TranslationManager translationManager;
 
     @Override
     public void onEnable() {
@@ -22,6 +23,7 @@ public final class ArchiveLocale extends JavaPlugin {
         protocolManager = ProtocolLibrary.getProtocolManager();
 
         localeManager = new LocaleManager();
+        translationManager = new TranslationManager(this);
         registerListeners();
         registerCommands();
     }
@@ -38,5 +40,9 @@ public final class ArchiveLocale extends JavaPlugin {
 
     public LocaleManager getLocaleManager() {
         return localeManager;
+    }
+
+    public TranslationManager getTranslationManager() {
+        return translationManager;
     }
 }

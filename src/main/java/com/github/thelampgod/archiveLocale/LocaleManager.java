@@ -10,7 +10,6 @@ public class LocaleManager {
 
     private final Map<Player, Locale> playerToLocaleMap = new HashMap<>();
 
-
     public Locale get(Player player) {
         return playerToLocaleMap.get(player);
     }

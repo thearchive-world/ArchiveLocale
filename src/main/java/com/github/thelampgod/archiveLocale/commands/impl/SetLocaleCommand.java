@@ -28,6 +28,7 @@ public class SetLocaleCommand implements CommandExecutor {
             return false;
         }
 
+        ArchiveLocale.INSTANCE.getTranslationManager().loadTranslations(locale);
         ArchiveLocale.INSTANCE.getLocaleManager().put(player, locale);
         player.sendMessage("Locale set to " + locale.getDisplayName());
 

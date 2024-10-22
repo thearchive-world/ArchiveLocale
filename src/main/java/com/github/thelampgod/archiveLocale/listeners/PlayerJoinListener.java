@@ -17,6 +17,7 @@ public class PlayerJoinListener implements Listener {
         final LocaleManager manager = ArchiveLocale.INSTANCE.getLocaleManager();
         Locale savedLocale = manager.get(player);
 
+        ArchiveLocale.INSTANCE.getTranslationManager().loadTranslations(player.locale());
         if (savedLocale == null) {
             manager.put(player, player.locale());
         }
