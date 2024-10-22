@@ -6,3 +6,8 @@ authors: [ thelampgod ]
 description: Adds localization to The Archive minecraft server
 website: https://github.com/thelampgod/ArchiveLocale
 depend: [ ProtocolLib ]
+
+commands:
+  SetLocale:
+    description: Sets the locale to use
+    usage: /SetLocale <locale>
