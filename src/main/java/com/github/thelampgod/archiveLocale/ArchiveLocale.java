@@ -33,7 +33,11 @@ public final class ArchiveLocale extends JavaPlugin {
     }
 
     private void registerListeners() {
-        protocolManager.addPacketListener(new SlotListener(this, PacketType.Play.Server.WINDOW_ITEMS));
+        protocolManager.addPacketListener(new SlotListener(this,
+                PacketType.Play.Server.WINDOW_ITEMS,
+                PacketType.Play.Server.SET_SLOT,
+                PacketType.Play.Server.OPEN_WINDOW
+        ));
         this.getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
     }
 
