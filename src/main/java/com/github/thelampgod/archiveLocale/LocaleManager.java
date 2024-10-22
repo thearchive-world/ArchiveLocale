@@ -15,6 +15,11 @@ public class LocaleManager {
     }
 
     public void put(Player player, Locale locale) {
+        ArchiveLocale.INSTANCE.getTranslationManager().loadTranslations(player.locale());
         playerToLocaleMap.put(player, locale);
+    }
+
+    public void remove(Player player) {
+        playerToLocaleMap.remove(player);
     }
 }

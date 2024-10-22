@@ -6,8 +6,11 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.metadata.FixedMetadataValue;
 
 import java.util.Locale;
+import java.util.NoSuchElementException;
 
 public class PlayerJoinListener implements Listener {
 
@@ -15,11 +18,22 @@ public class PlayerJoinListener implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) {
         final Player player = event.getPlayer();
         final LocaleManager manager = ArchiveLocale.INSTANCE.getLocaleManager();
-        Locale savedLocale = manager.get(player);
+        var metaLocale = player.getMetadata("locale");
 
-        ArchiveLocale.INSTANCE.getTranslationManager().loadTranslations(player.locale());
-        if (savedLocale == null) {
+        try {
+            manager.put(player, (Locale) metaLocale.getFirst().value());
+        } catch (NoSuchElementException e) {
+            //no saved locale, use player default
             manager.put(player, player.locale());
         }
+    }
+
+    @EventHandler
+    public void onPlayerLeave(PlayerQuitEvent event) {
+        final Player player = event.getPlayer();
+        final LocaleManager manager = ArchiveLocale.INSTANCE.getLocaleManager();
+
+        player.setMetadata("locale", new FixedMetadataValue(ArchiveLocale.INSTANCE, manager.get(player)));
+        manager.remove(player);
     }
 }

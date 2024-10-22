@@ -32,6 +32,7 @@ public final class ArchiveLocale extends JavaPlugin {
         getCommand("SetLocale").setExecutor(new SetLocaleCommand());
     }
 
+    //todo: translate chat? signs?
     private void registerListeners() {
         protocolManager.addPacketListener(new SlotListener(this,
                 PacketType.Play.Server.WINDOW_ITEMS,
