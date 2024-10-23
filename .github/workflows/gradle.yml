@@ -3,10 +3,10 @@ name: Build
 on:
   push:
     branches:
-      - 'master'
+      - 'terbin-test'
   pull_request:
     branches:
-      - 'master'
+      - 'terbin-test'
   workflow_dispatch:
 
 jobs:
