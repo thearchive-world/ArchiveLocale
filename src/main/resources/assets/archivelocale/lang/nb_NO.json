@@ -1,6 +1,6 @@
 {
   "archive.hotbar.warps": "Warps",
-  "archive.hotbar.warps.desc": "Høyreklikk for å åpne warps-grensesnittet",
+  "archive.hotbar.warps.desc": "Høyreklikk for å åpne warps-interface",
   "archive.hotbar.teleport": "Teleporter",
   "archive.hotbar.teleport.desc1": "Venstreklikk: teleporter fremover",
   "archive.hotbar.teleport.desc2": "Høyreklikk: teleporter gjennom",
@@ -52,7 +52,7 @@
 
   "archive.header.row1": "§7En samling av byggverk fra serverne",
   "archive.header.row2": "§72builders2tools (2b2t) og Constantiam",
-  "archive.footer.row1": "§7klokken i hotbaren åpner /warps-grensesnittet",
+  "archive.footer.row1": "§7klokken i hotbaren åpner /warps-interface",
   "archive.footer.help": "§6/help §7[§62§7|§63§7] for kommando-hjelp",
   "archive.footer.address": "§8adresse: §7thearchive.world",
   "archive.footer.contact": "§8kontakt: §7write.the.archive@gmail.com"
