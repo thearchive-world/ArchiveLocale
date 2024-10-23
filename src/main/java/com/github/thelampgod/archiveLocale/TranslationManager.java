@@ -19,6 +19,7 @@ public class TranslationManager {
 
     public TranslationManager(JavaPlugin plugin) {
         this.plugin = plugin;
+        loadTranslations(DEFAULT_LOCALE);
     }
 
     /**
@@ -45,15 +46,22 @@ public class TranslationManager {
             return false;
         }
 
+        plugin.getLogger().info("Loaded " + locale.toString() + " lang");
         return true;
     }
 
     public String translate(String key, Locale locale) {
+        if (!key.startsWith("archive.")) return key;
         if (!(translations.containsKey(locale))) {
             locale = DEFAULT_LOCALE;
         }
 
         Map<String, String> localeTranslations = translations.get(locale);
+        return localeTranslations.getOrDefault(key, fallback(key));
+    }
+
+    private String fallback(String key) {
+        Map<String, String> localeTranslations = translations.get(DEFAULT_LOCALE);
         return localeTranslations.getOrDefault(key, key);
     }
 }
