@@ -9,23 +9,23 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.metadata.FixedMetadataValue;
 
-import java.util.Locale;
-import java.util.NoSuchElementException;
-
 public class PlayerJoinListener implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         final Player player = event.getPlayer();
         final LocaleManager manager = ArchiveLocale.INSTANCE.getLocaleManager();
-        var metaLocale = player.getMetadata("locale");
 
-        try {
-            manager.put(player, (Locale) metaLocale.getFirst().value());
-        } catch (NoSuchElementException e) {
-            //no saved locale, use player default
-            manager.put(player, player.locale());
-        }
+        manager.put(player, player.locale());
+
+//        var metaLocale = player.getMetadata("locale");
+//
+//        try {
+//            manager.put(player, (Locale) metaLocale.getFirst().value());
+//        } catch (NoSuchElementException e) {
+//            //no saved locale, use player default
+//            manager.put(player, player.locale());
+//        }
     }
 
     @EventHandler
@@ -33,7 +33,7 @@ public class PlayerJoinListener implements Listener {
         final Player player = event.getPlayer();
         final LocaleManager manager = ArchiveLocale.INSTANCE.getLocaleManager();
 
-        player.setMetadata("locale", new FixedMetadataValue(ArchiveLocale.INSTANCE, manager.get(player)));
+//        player.setMetadata("locale", new FixedMetadataValue(ArchiveLocale.INSTANCE, manager.get(player)));
         manager.remove(player);
     }
 }
