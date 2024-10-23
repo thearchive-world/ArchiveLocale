@@ -4,7 +4,7 @@ main: com.github.thelampgod.archiveLocale.ArchiveLocale
 api-version: '1.21'
 authors: [ thelampgod ]
 description: Adds localization to The Archive minecraft server
-website: https://github.com/thelampgod/ArchiveLocale
+website: https://github.com/thearchive-world/ArchiveLocale
 depend: [ ProtocolLib ]
 
 commands:
