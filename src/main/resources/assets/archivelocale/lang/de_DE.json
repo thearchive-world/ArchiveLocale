@@ -48,9 +48,9 @@
   "archive.mainmenu.survival.desc1": "läuft nativ auf 1.21.1",
   "archive.mainmenu.survival.desc2": "IP Adrese:",
 
-  "archive.back": "Zurück"
+  "archive.back": "Zurück",
 
-  "archive.header.row1": "§7A Sammlung von Bauwerken der Server",
+  "archive.header.row1": "§7Sammlung von Bauwerken der Server",
   "archive.header.row2": "§72builders2tools (2b2t) und Constantiam",
   "archive.footer.row1": "§7Die Uhr in der Hotbar öffnet die /warps Oberfläche",
   "archive.footer.help": "§6/help §7[§62§7|§63§7] für Befehlshilfe",
