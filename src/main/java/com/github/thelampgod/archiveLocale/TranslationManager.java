@@ -26,8 +26,12 @@ public class TranslationManager {
         loadTranslations(DEFAULT_LOCALE);
     }
 
-    public List<String> getAvailLocales() {
-        List<String> locales = new ArrayList<>();
+    /**
+     * Get available locales as a map of human-readable names to Locale objects
+     * @return Map of locale display names to Locale objects
+     */
+    public Map<String, Locale> getAvailLocales() {
+        Map<String, Locale> locales = new LinkedHashMap<>();
         try {
             Enumeration<URL> urls = plugin.getClass().getClassLoader().getResources("assets/archivelocale/lang/");
 
@@ -41,7 +45,11 @@ public class TranslationManager {
                             .filter(e -> e.getName().startsWith("assets/archivelocale/lang/") && !e.isDirectory())
                             .map(e -> e.getName().split("assets/archivelocale/lang/")[1])
                             .map(e -> e.split("\\.")[0])
-                            .forEach(locales::add);
+                            .forEach(localeCode -> {
+                                Locale locale = createLocaleFromCode(localeCode);
+                                String displayName = locale.getDisplayName(Locale.ENGLISH);
+                                locales.put(displayName, locale);
+                            });
                 }
             }
         } catch (IOException e) {
@@ -49,6 +57,7 @@ public class TranslationManager {
         }
         return locales;
     }
+
 
     /**
      * Load localization file into memory
