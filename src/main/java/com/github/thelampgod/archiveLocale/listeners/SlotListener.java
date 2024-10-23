@@ -6,7 +6,7 @@ import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.events.PacketEvent;
 import com.comphenix.protocol.wrappers.WrappedChatComponent;
 import com.github.thelampgod.archiveLocale.ArchiveLocale;
-import com.github.thelampgod.archiveLocale.InventoryTranslator;
+import com.github.thelampgod.archiveLocale.Translator;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
@@ -14,11 +14,11 @@ import java.util.Locale;
 
 public class SlotListener extends PacketAdapter {
 
-    private final InventoryTranslator translator;
+    private final Translator translator;
 
     public SlotListener(ArchiveLocale plugin, PacketType... types) {
         super(plugin, types);
-        this.translator = new InventoryTranslator(plugin);
+        this.translator = new Translator(plugin);
     }
 
     @Override
@@ -58,7 +58,7 @@ public class SlotListener extends PacketAdapter {
         PacketContainer packet = event.getPacket();
         Locale locale = ArchiveLocale.INSTANCE.getLocaleManager().get(event.getPlayer());
         WrappedChatComponent title = packet.getChatComponents().read(0);
-        translator.translateTitle(title, locale);
+        translator.translateTextComponent(title, locale);
 
         packet.getChatComponents().write(0, title);
     }

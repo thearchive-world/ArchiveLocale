@@ -5,6 +5,7 @@ import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
 import com.github.thelampgod.archiveLocale.commands.impl.SetLocaleCommand;
 import com.github.thelampgod.archiveLocale.listeners.PlayerJoinListener;
+import com.github.thelampgod.archiveLocale.listeners.PlayerListListener;
 import com.github.thelampgod.archiveLocale.listeners.SlotListener;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -15,6 +16,7 @@ public final class ArchiveLocale extends JavaPlugin {
 
     private LocaleManager localeManager;
     private TranslationManager translationManager;
+    private PlayerListCache cache;
 
     @Override
     public void onEnable() {
@@ -24,6 +26,7 @@ public final class ArchiveLocale extends JavaPlugin {
 
         localeManager = new LocaleManager();
         translationManager = new TranslationManager(this);
+        cache = new PlayerListCache();
         registerListeners();
         registerCommands();
     }
@@ -39,6 +42,7 @@ public final class ArchiveLocale extends JavaPlugin {
                 PacketType.Play.Server.SET_SLOT,
                 PacketType.Play.Server.OPEN_WINDOW
         ));
+        protocolManager.addPacketListener(new PlayerListListener(this, PacketType.Play.Server.PLAYER_LIST_HEADER_FOOTER));
         this.getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
     }
 
@@ -49,5 +53,13 @@ public final class ArchiveLocale extends JavaPlugin {
 
     public TranslationManager getTranslationManager() {
         return translationManager;
+    }
+
+    public ProtocolManager getProtocolManager() {
+        return protocolManager;
+    }
+
+    public PlayerListCache getPlayerListCache() {
+        return cache;
     }
 }

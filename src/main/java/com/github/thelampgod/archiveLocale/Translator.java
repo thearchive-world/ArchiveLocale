@@ -12,11 +12,11 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class InventoryTranslator {
+public class Translator {
 
     private final ArchiveLocale plugin;
 
-    public InventoryTranslator(ArchiveLocale plugin) {
+    public Translator(ArchiveLocale plugin) {
         this.plugin = plugin;
     }
 
@@ -74,7 +74,7 @@ public class InventoryTranslator {
         item.setItemMeta(meta);
     }
 
-    public void translateTitle(WrappedChatComponent title, Locale locale) {
+    public void translateTextComponent(WrappedChatComponent title, Locale locale) {
         String titleKey = title.getJson();
 
         String translatedText = translateKeysInString(titleKey, locale);

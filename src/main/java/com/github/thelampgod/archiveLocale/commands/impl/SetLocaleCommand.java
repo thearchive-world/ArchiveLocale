@@ -1,5 +1,6 @@
 package com.github.thelampgod.archiveLocale.commands.impl;
 
+import com.comphenix.protocol.events.PacketContainer;
 import com.github.thelampgod.archiveLocale.ArchiveLocale;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.event.ClickEvent;
@@ -46,6 +47,9 @@ public class SetLocaleCommand implements CommandExecutor {
         player.sendMessage("Locale set to " + locale.getDisplayName());
 
         player.updateInventory();
+        //update tab
+        PacketContainer packet = ArchiveLocale.INSTANCE.getPlayerListCache().get(player);
+        ArchiveLocale.INSTANCE.getProtocolManager().sendServerPacket(player, packet);
         return true;
     }
 }
