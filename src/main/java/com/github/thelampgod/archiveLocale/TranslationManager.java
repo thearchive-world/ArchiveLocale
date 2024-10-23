@@ -2,12 +2,16 @@ package com.github.thelampgod.archiveLocale;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
+import java.nio.file.Path;
+import java.util.*;
+import java.util.jar.JarFile;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -20,6 +24,30 @@ public class TranslationManager {
     public TranslationManager(JavaPlugin plugin) {
         this.plugin = plugin;
         loadTranslations(DEFAULT_LOCALE);
+    }
+
+    public List<String> getAvailLocales() {
+        List<String> locales = new ArrayList<>();
+        try {
+            Enumeration<URL> urls = plugin.getClass().getClassLoader().getResources("assets/archivelocale/lang/");
+
+            // Check if it's a jar connection
+            while (urls.hasMoreElements()) {
+                URL url = urls.nextElement();
+                URLConnection connection = url.openConnection();
+                if (connection instanceof java.net.JarURLConnection) {
+                    JarFile jarFile = ((java.net.JarURLConnection) connection).getJarFile();
+                    jarFile.stream()
+                            .filter(e -> e.getName().startsWith("assets/archivelocale/lang/") && !e.isDirectory())
+                            .map(e -> e.getName().split("assets/archivelocale/lang/")[1])
+                            .map(e -> e.split("\\.")[0])
+                            .forEach(locales::add);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return locales;
     }
 
     /**

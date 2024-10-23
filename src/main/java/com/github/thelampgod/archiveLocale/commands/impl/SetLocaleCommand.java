@@ -11,12 +11,23 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
 import java.util.Locale;
 
 public class SetLocaleCommand implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (args.length < 1) {
+            StringBuilder message = new StringBuilder("Choose between ");
+            List<String> locales = ArchiveLocale.INSTANCE.getTranslationManager().getAvailLocales();
+            for (int i = 0; i < locales.size(); ++i) {
+                message.append(locales.get(i));
+
+                if (i != locales.size() - 1) {
+                    message.append(", ");
+                }
+            }
+            sender.sendMessage(message.toString());
             return false;
         }
         if (!(sender instanceof Player player)) {
