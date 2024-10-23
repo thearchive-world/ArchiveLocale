@@ -1,5 +1,6 @@
 package com.github.thelampgod.archiveLocale;
 
+import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
 import com.github.thelampgod.archiveLocale.commands.impl.SetLocaleCommand;
@@ -32,12 +33,18 @@ public class ArchiveLocale extends JavaPlugin {
         // Register event listeners
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
 
-        // Register protocol listeners
-        protocolManager.addPacketListener(new SlotListener(this));
-        protocolManager.addPacketListener(new PlayerListListener(this));
+        // Register protocol listeners with specified packet types
+        protocolManager.addPacketListener(new SlotListener(this,
+                PacketType.Play.Server.WINDOW_ITEMS,
+                PacketType.Play.Server.SET_SLOT,
+                PacketType.Play.Server.OPEN_WINDOW));
+
+        protocolManager.addPacketListener(new PlayerListListener(this,
+                PacketType.Play.Server.PLAYER_LIST_HEADER_FOOTER));
 
         // Any other initialization code...
     }
+
 
     @Override
     public void onDisable() {

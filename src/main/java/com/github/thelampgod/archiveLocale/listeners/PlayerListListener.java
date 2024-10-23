@@ -10,6 +10,7 @@ import com.github.thelampgod.archiveLocale.Translator;
 import java.util.Locale;
 
 public class PlayerListListener extends PacketAdapter {
+
     private final Translator translator;
 
     public PlayerListListener(ArchiveLocale plugin, PacketType... types) {
