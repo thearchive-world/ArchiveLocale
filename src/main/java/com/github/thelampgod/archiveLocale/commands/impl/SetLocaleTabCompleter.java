@@ -1,5 +1,6 @@
-package com.github.thelampgod.archiveLocale;
+package com.github.thelampgod.archiveLocale.commands.impl;
 
+import com.github.thelampgod.archiveLocale.ArchiveLocale;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;

@@ -101,5 +101,25 @@ public class TranslationManager {
         Map<String, String> localeTranslations = translations.get(DEFAULT_LOCALE);
         return localeTranslations.getOrDefault(key, key);
     }
+
+    /**
+     * Helper method to create a Locale object from a locale code string
+     * @param localeCode Locale code string (e.g., "en_US")
+     * @return Locale object
+     */
+    private Locale createLocaleFromCode(String localeCode) {
+        String[] parts = localeCode.split("_");
+        if (parts.length == 1) {
+            return new Locale(parts[0]);
+        } else if (parts.length == 2) {
+            return new Locale(parts[0], parts[1]);
+        } else if (parts.length == 3) {
+            return new Locale(parts[0], parts[1], parts[2]);
+        } else {
+            return Locale.US; // Fallback to default locale
+        }
+    }
+
+
 }
 
