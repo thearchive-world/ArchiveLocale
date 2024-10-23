@@ -37,7 +37,7 @@
   "archive.mainmenu.2024": "etablert 2024",
   "archive.mainmenu.new": "nylig lagt til",
   "archive.mainmenu.groups": "grupper / byggere",
-  "archive.mainmenu.axis": "Langs aksen",
+  "archive.mainmenu.axes": "Langs aksen",
   "archive.mainmenu.misc": "Diverse",
   "archive.mainmenu.unclear": "startdato uklar",
   "archive.mainmenu.nether": "Nether Spawn",
@@ -50,10 +50,10 @@
 
   "archive.back": "Tilbake",
 
-  "archive.header.row1": "§7En samling av byggverk fra serverne",
-  "archive.header.row2": "§72builders2tools (2b2t) og Constantiam",
-  "archive.footer.row1": "§7klokken i hotbaren åpner /warps-grensesnittet",
-  "archive.footer.help": "§6/help §7[§62§7|§63§7] for kommando-hjelp",
-  "archive.footer.address": "§8adresse: §7thearchive.world",
-  "archive.footer.contact": "§8kontakt: §7write.the.archive@gmail.com"
+  "archive.header.row1": "&7  En samling av byggverk fra serverne  ",
+  "archive.header.row2": "&7  2builders2tools (2b2t) og Constantiam  ",
+  "archive.footer.row1": "&7klokken i hotbaren åpner /warps-grensesnittet",
+  "archive.footer.help": "&6/help &7[&62&7|&63&7] for kommando-hjelp",
+  "archive.footer.address": "&8adresse: &7thearchive.world             ",
+  "archive.footer.contact": "&8kontakt: &7write.the.archive@gmail.com"
 }

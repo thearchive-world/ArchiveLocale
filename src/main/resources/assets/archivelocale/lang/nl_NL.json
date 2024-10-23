@@ -37,7 +37,7 @@
   "archive.mainmenu.2024": "gevestigd 2024",
   "archive.mainmenu.new": "nieuw toegevoegd",
   "archive.mainmenu.groups": "groepen / bouwer",
-  "archive.mainmenu.axis": "langs de Axis",
+  "archive.mainmenu.axes": "langs de Axis",
   "archive.mainmenu.misc": "Gemengd",
   "archive.mainmenu.unclear": "start datum onbekend",
   "archive.mainmenu.nether": "Nether Spawn",
@@ -50,10 +50,10 @@
 
   "archive.back": "Terug",
 
-  "archive.header.row1": "§7Een collectie van gebouwen op de server",
-  "archive.header.row2": "§72builders2tools (2b2t) en Constantiam",
+  "archive.header.row1": "§7  Een collectie van gebouwen op de server  ",
+  "archive.header.row2": "§7  2builders2tools (2b2t) en Constantiam  ",
   "archive.footer.row1": "§7Klok in je hotbar opent de /warps gui",
   "archive.footer.help": "§6/help §7[§62§7|§63§7] voor command hulp",
-  "archive.footer.address": "§8adres: §7thearchive.world",
+  "archive.footer.address": "§8adres: §7thearchive.world             ",
   "archive.footer.contact": "§8contact: §7write.the.archive@gmail.com"
 }
