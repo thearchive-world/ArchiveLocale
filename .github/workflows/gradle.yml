@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - 'master'
-      - 'terbin-test
+      - 'terbin-test'
   pull_request:
     branches:
       - 'master'
