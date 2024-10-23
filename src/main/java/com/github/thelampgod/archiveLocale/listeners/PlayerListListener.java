@@ -19,7 +19,6 @@ public class PlayerListListener extends PacketAdapter {
 
     @Override
     public void onPacketSending(PacketEvent event) {
-        this.plugin.getLogger().info("playerlist");
         PacketContainer packet = event.getPacket();
         ((ArchiveLocale) plugin).getPlayerListCache().put(event.getPlayer(), packet.deepClone());
 
