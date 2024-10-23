@@ -50,10 +50,10 @@
 
   "archive.back": "Tillbaka",
 
-  "archive.header.row1": "&7  En samling kreationer från servrarna  ",
-  "archive.header.row2": "&7  2builders2tools (2b2t) och Constantiam  ",
-  "archive.footer.row1": "&7klocka i hotbar öppnar /warps-menyn",
-  "archive.footer.help": "&6/help &7[&62&7|&63&7] för kommandohjälp",
-  "archive.footer.address": "&8server adress: &7thearchive.world             ",
-  "archive.footer.contact": "&8kontakt: &7write.the.archive@gmail.com"
+  "archive.header.row1": "§7En samling kreationer från servrarna",
+  "archive.header.row2": "§72builders2tools (2b2t) och Constantiam",
+  "archive.footer.row1": "§7klocka i hotbar öppnar /warps-menyn",
+  "archive.footer.help": "§6/help §7[§62§7|§63§7] för kommandohjälp",
+  "archive.footer.address": "§8server adress: §7thearchive.world",
+  "archive.footer.contact": "§8kontakt: §7write.the.archive@gmail.com"
 }

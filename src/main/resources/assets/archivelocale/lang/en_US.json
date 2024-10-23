@@ -50,10 +50,10 @@
 
   "archive.back": "Back",
 
-  "archive.header.row1": "&7  A collection of builds from the servers  ",
-  "archive.header.row2": "&7  2builders2tools (2b2t) and Constantiam  ",
-  "archive.footer.row1": "&7clock in hotbar opens the /warps gui",
-  "archive.footer.help": "&6/help &7[&62&7|&63&7] for command help",
-  "archive.footer.address": "&8address: &7thearchive.world             ",
-  "archive.footer.contact": "&8contact: &7write.the.archive@gmail.com"
+  "archive.header.row1": "§7A collection of builds from the servers",
+  "archive.header.row2": "§72builders2tools (2b2t) and Constantiam",
+  "archive.footer.row1": "§7clock in hotbar opens the /warps gui",
+  "archive.footer.help": "§6/help §7[§62§7|§63§7] for command help",
+  "archive.footer.address": "§8address: §7thearchive.world",
+  "archive.footer.contact": "§8contact: §7write.the.archive@gmail.com"
 }
